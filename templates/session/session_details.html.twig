@@ -1,0 +1,195 @@
+{% extends '/FrontOffice/base.html.twig' %}
+
+{% block body %}
+
+    <!-- Property Details Section Begin -->
+    <section class="property-details-section">
+        <div class="container">
+            </br></br></br>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="pd-text">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="pd-title">
+
+
+                                    <input type="hidden" id="id" >
+                                    <input type="hidden" id="type" >
+                                    {% set p=0 %}
+                                    {% if session.type=="paid" %}
+                                        <div class="pt-price">{{ paid.price }} <span>/Dt</span></div>
+                                        {% set p= paid.price  %}
+                                    {% else %}
+                                        {% set p= 0  %}
+                                    {% endif %}
+                                    <h3>{{ session.title }}</h3>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="pd-social">
+                                    {% if is_granted('ROLE_Coach') %}
+                                        {% if user==session.u %}
+                                            <a  href="{{ path('update_session' ,{'id':session.id})}}"><i class="fa fa-edit "></i></a>
+                                            <a href="{{ path('delete_session' ,{'id':session.id})}}"><i class="fa fa-trash"></i></a>
+                                        {% endif %}
+                                    {% endif %}
+                                
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="pd-widget">
+                            <img class="" src="{{ asset('assets/img/session/'~session.imgUrl) }}" width=" 600px" height="300px" alt="">
+                            <br>
+                            <br>
+                            <h3>Description</h3>
+                            <br>
+                            <h5>{{ session.description }}</h5>
+                            <br><br>
+                            {% if is_granted('ROLE_USER') %}
+                                {% if session.u != user%}
+                                    {% if part=="" %}
+                                        <button   class="btn btn-primary" id="checkout-button">Participate</button>
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                            {#   <a style="margin-left: 30em" class="button rounded-0 primary-bg text-white w-25 btn_1 boxed-btn" href="{{ path('participate_session' ,{'id':session.id})}}">Participate</a>
+                            #} <br><br>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                {% if part=="exist" %}
+                                    <a style="margin-left: 30em" class="button rounded-0 primary-bg text-white w-30 btn_1 boxed-btn" href="{{ path('session_actions_by_session' ,{'id':session.id})}}">See actions</a>
+                                {% endif %}
+                            {% endif %}
+                            {% if is_granted('ROLE_ADMIN') %}
+                                {% if session.u==user %}
+                                    <a style="margin-left: 30em" class="button rounded-0 primary-bg text-white w-30 btn_1 boxed-btn" href="{{ path('session_actions_by_session' ,{'id':session.id})}}">See actions</a>
+                                {% endif %}
+                            {% endif %}
+                            <br><br>
+                            <h4>Coach</h4>
+                            <div class="pd-agent">
+                                <div class="agent-pic">
+                                    <img src="../assets/others/img/property/details/agent.jpg" alt="">
+                                </div>
+                                <div class="agent-text">
+                                    <div class="at-title">
+                                        <h6>{{ session.u.firstName }} {{ session.u.lastName }}</h6>
+
+
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipis cing elit, eiusmod tempor incididunt</p>
+                                    <div class="at-option">
+                                        <div class="at-number">{{ session.u.email }}</div>
+                                        <div class="at-social">
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                            <a href="#"><i class="fa fa-envelope-o"></i></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="property-sidebar">
+                        <div class="single-sidebar">
+                            <div class="section-title sidebar-title">
+                                <h5>Last sessions</h5>
+                            </div>
+
+                            <div class="top-agent">
+                                {% for lastsession in lastsessions %}
+                                    <div class="ta-item">
+                                        <div class="ta-pic set-bg" data-setbg="{{ asset('assets/img/session/'~lastsession.imgUrl) }}"></div>
+                                        <div class="ta-text">
+                                            <h6><a href="#">{{ lastsession.title }} </a></h6>
+                                            <span style="color: white">{{ lastsession.id }} </span>
+                                            <div class="ta-num">{{ lastsession.createdAt }}</div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+                        </div>
+                        <div class="single-sidebar slider-op">
+                            <div class="section-title sidebar-title">
+                                <h5>Categories</h5>
+                            </div>
+                            <div class="sf-slider owl-carousel">
+                                {% for category in categories %}
+                                    <div class="sf-item set-bg" data-setbg="{{ asset('assets/img/session/'~category.imgUrl) }}">
+                                        <div class="sf-text">
+                                            <a href="{{ path('sessions_by_category',{'id':category.catId}) }}">  <h5>{{ category.name }}</h5></a>
+                                            <span>{{ category.totalsessions }} sessions</span>
+                                        </div>
+                                    </div>
+
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </section>
+    <!-- Property Details Section End -->
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+        var stripe = Stripe('pk_test_51IjkvCBmeiBzIRGD5pNDXKeyGS6JRLAIeNbZCTy7KnPZj2Uva5SajH5IAtfUZLcSKIFS0N7sLbAlVn5LtzekZKJQ00eRFhCHvT');
+
+        var checkoutButton = document.getElementById('checkout-button');
+        console.log(checkoutButton);
+        var price="{{ paid.price }}";
+        console.log(price);
+
+        checkoutButton.addEventListener('click', function() {
+
+            if( price!="")
+            {
+                fetch('/create-checkout-session/{{ paid.price }}00/{{ session.title }}/{{ session.id }}', {
+                    method: 'POST',
+                })
+                    .then(function(response) {
+                        return response.json();
+                    })
+                    .then(function(session) {
+                        return stripe.redirectToCheckout({ sessionId: session.id });
+                    })
+                    .then(function(result) {
+
+                        if (result.error) {
+                            alert(result.error.message);
+                        }
+                    })
+                    .catch(function(error) {
+                        console.error('Error:', error);
+                    });
+                console.log("before {{session.id  }}");
+            }else{
+                console.log("{{session.id  }}");
+                fetch('/participatesession/{{ session.id }}', {
+                    method: 'POST',
+                })
+
+            }
+
+        });
+
+
+    </script>
+{% endblock %}

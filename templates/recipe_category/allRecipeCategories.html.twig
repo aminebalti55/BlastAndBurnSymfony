@@ -1,0 +1,237 @@
+{% extends '/FrontOffice/base.html.twig' %}
+
+{% block body %}
+  <style>
+        #hr {
+            width: 100%;
+            height: 76vh;
+            background: url("/assets/img/recipe/rbb.jpg") center center;
+            background-size: cover;
+            position: relative;
+        }
+        #hr .container {
+            padding-top: 80px;
+        }
+
+        #hr:before {
+            content: "";
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        #hr h1 {
+            margin: 0 0 10px 0;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 56px;
+            color: #fff;
+        }
+
+        #hr h2 {
+            color: #eee;
+            margin-bottom: 40px;
+            font-size: 15px;
+            font-weight: 500;
+            font-family: "Open Sans", sans-serif;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        #hr .btn-get-started {
+            font-family: "Poppins", sans-serif;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 1px;
+            display: inline-block;
+            padding: 12px 28px;
+            transition: 0.5s;
+            margin: 10px;
+            border: 2px solid #fff;
+            color: #fff;
+        }
+
+        #hr .btn-get-started:hover {
+            background: #0b517d;
+            border: 2px solid #0b517d;
+        }
+
+        @media (min-width: 1024px) {
+            #hr {
+                background-attachment: fixed;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #hr {
+                height: 100vh;
+            }
+            #hr .container {
+                padding-top: 60px;
+            }
+            #hr h1 {
+                font-size: 200px;
+                line-height: 36px;
+            }
+        }
+        .banner {
+            position: relative;
+            height: 210px;
+            background-image: url("/assets/img/recipe/jjjk.jpg");
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+
+     <section id="hr" class="d-flex align-items-center">
+         <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
+             <font color="#fff" size="130">Recipe Categories</font><br>
+         </div>
+     </section>
+
+  <style>
+        .team {
+            background: #fff;
+        }
+
+        .team .member {
+            box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .team .member .pic {
+            overflow: hidden;
+            width: 180px;
+            margin: 0 auto 20px auto;
+            border: 2px solid ##e63946;
+            border-radius: 10px;
+        }
+
+        .team .member .pic img {
+            transition: ease-in-out 0.3s;
+        }
+
+        .team .member:hover img {
+            transform: scale(1.1);
+        }
+
+        .team .member h4 {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 20px;
+            color: #36343a;
+        }
+
+        .team .member span {
+            display: block;
+            font-size: 15px;
+            padding-bottom: 10px;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .team .member span::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 50px;
+            height: 1px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .team .member p {
+            margin: 10px 0 0 0;
+            font-size: 14px;
+        }
+
+        .team .member .social a {
+            transition: ease-in-out 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50px;
+            width: 32px;
+            height: 32px;
+        }
+
+        .team .member .social a i {
+            color: #fff;
+            font-size: 16px;
+            margin: 0 2px;
+        }
+
+        .team .member .social a + a {
+            margin-left: 8px;
+        }
+
+        input, select {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        input {
+            width: 350px;
+            padding: 5px;
+        }
+        .view-btn {
+            display: inline-block;
+            font-size: 14px;
+            padding: 12px 30px 12px;
+            color: #111111;
+            text-transform: uppercase;
+            font-weight: 700;
+            border: 1px solid ##e63946;
+            background: ##e63946;
+        }
+        nobr { white-space: nowrap }
+
+    </style>
+<br><br>
+<div class="row justify-content-center mb-5 pb-2">
+				<div class="col-md-7 text-center heading-section ftco-animate">
+					<span class="subheading">Specialties</span>
+				    <h2 class="mb-4">Only the healthy for you </h2>
+				    <a href="{{ path('allRecipes') }}" class="btn_3">View All Recipes</a>
+				   <br>
+				</div>
+			</div>
+<br>
+ <section id="team" class="team">
+         <div class="container">
+
+             <div class="row" data-aos="fade-up" data-aos-delay="200">
+                 {% for category in categories %}
+                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                        <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                                                     <div class="pic">
+
+                             <img src="{{ asset('assets/img/recipe/'~category.imgUrl) }}" class="img-fluid" alt=""  >
+                                <div class="view-btn">
+                                 <h4> <a href="{{ path('recipesByCategory',{'id':category.catId}) }}">{{ category.name }}</a>
+                                 </h4>
+                                 <div class="portfolio-links">
+                                     <a href="{{ path('recipesByCategory',{'id':category.catId}) }}" title="More Details"><i class="bx bx-link"></i></a>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     </div>
+
+                 {% endfor %}
+             </div>
+
+         </div>
+     </section>
+</section>
+		{% endblock %}

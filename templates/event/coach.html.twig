@@ -1,0 +1,76 @@
+{% extends '/FrontOffice/base.html.twig' %}
+{% block body %}
+<!-- Start Main -->
+      <main>
+      <!-- Hero Area Start-->
+      <div class="slider-area ">
+            <div class="single-slider slider-height2 d-flex align-items-center">
+               <div class="container">
+                  <div class="row">
+                        <div class="col-xl-12">
+                           <div class="hero-cap text-center">
+                              <h2>Become A Coach</h2>
+                           </div>
+                        </div>
+                  </div>
+               </div>
+            </div>
+      </div>
+      
+      <!--================Blog Area =================-->
+      <section class="blog_area single-post-area section-padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-8 posts-list">
+                  <div class="single-post">
+                    
+                  
+                        
+                   
+                         
+                     
+                   
+                  <div class="comment-form">
+                     <h4>Post Your Certificate</h4>
+                     <form class="form-contact comment_form" action="#" id="commentForm">
+                        <div class="row">
+                           <div class="col-12">
+                        {{form_start(form,{'attr':{'class':'wpcf7-form','novalidate':'novalidate'}})}}
+
+                              <div class="form-group">
+                                    {{ form_widget(form.imgurl ) }}
+                                    {{ form_errors(form.imgurl) }}
+                              </div>
+                           </div>
+                           <div class="col-sm-6">
+                              <label class="form-label" for="exampleInputname">Name</label>
+                    {{ form_widget(form.Name , {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'Name'}} ) }}
+                    {{ form_errors(form.Name) }}
+                           </div>
+                          
+
+                        </div>
+
+                        <div class="form-group">
+                     <div >{{ form_row(form.add,{ 'attr': {'class': 'btn_3'} }) }}</div>
+                        </div>
+                      {{ form_end(form) }}
+
+                     </form>
+                  </div>
+               </div>
+               <div class="col-lg-4">
+                  <div class="blog_right_sidebar">
+                    
+                  
+                 
+                    
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!--================ Blog Area end =================-->
+   </main>
+   <!-- End Main -->
+{% endblock %}

@@ -1,0 +1,33 @@
+{% block body %}
+
+    {% for recipe in recipes %}
+
+        recipe by blastandburn ® <br>
+        added by a certified nutritionist
+        <br><br><br>
+
+
+        <center><img src="{{ app.request.getSchemeAndHttpHost() ~ asset('assets/img/recipe/'~recipe.imgUrl) }}" width="200px" height="200px" alt="hmmmm"/></center>
+        <br>
+        <center><font color="#ae2012" size="45"><b>{{ recipe.title}}</b></font></center>
+
+        <center><p><font color="#000000">{{ recipe.description }}</font></p></center>
+
+        <hr><br>
+
+        <h2><font color="#ae2012"> Ingredients :</font></h2><br>
+        &nbsp;&nbsp;&nbsp;<p><font color="#000000">{{ recipe.ingredients }}</font></p><br>
+
+        <h2><font color="#ae2012">Steps to follow :</font></h2><br>
+        &nbsp;&nbsp;&nbsp;<p><font color="#000000">{{ recipe.steps }}</font></p>
+
+        <br><hr><br>
+
+
+        <font color="#ae2012">CALORIES :</font><font color="#000000"> {{ recipe.calories }} </font><br><br>
+        <font color="#ae2012">PREP TIME :</font><font color="#000000"> {{ recipe.duration }} min </font><br><br>
+        <font color="#ae2012">SERVES :</font> <font color="#000000">{{ recipe.persons }} persons </font><br><br>
+
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% block head %}
+    <head>
+        <!-- Meta Tag -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name='copyright' content='pavilan'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Title Tag  -->
+        <title>Blast And Burn</title>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/favicon.png" href="{{asset('front/img/logo.png')}}">
+
+        <!-- Web Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- Bizwheel Plugins CSS -->
+        <link rel="stylesheet" href="{{asset('front/css/animate.min.css')}}">
+        <link rel="stylesheet" href="{{asset('front/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('front/css/cubeportfolio.min.css')}}">
+        <link rel="stylesheet" href="{{asset('front/css/font-awesome.css')}}">
+        <link rel="stylesheet" href="{{asset('front/css/jquery.fancybox.min.css')}}">
+        <link rel="stylesheet" href="{{asset('front/css/magnific-popup.min.css')}}">
+        <link rel="stylesheet" href="{{asset('front/css/owl-carousel.min.css')}}">
+        <link rel="stylesheet" href="{{asset('front/css/slicknav.min.css')}}">
+
+        <!-- Bizwheel Stylesheet -->
+        <link rel="stylesheet" href="{{asset('front/css/reset.css')}}">
+        <link rel="stylesheet" href="{{asset('front/style.css')}}">
+        <link rel="stylesheet" href="{{asset('front/css/responsive.css')}}">
+
+        <!-- Bizwheel Colors -->
+        <!--<link rel="stylesheet" href="{{asset('front/css/skins/skin-1.css')}}">-->
+        <!--<link rel="stylesheet" href="{{asset('front/css/skins/skin-2.css')}}">-->
+        <!--<link rel="stylesheet" href="{{asset('front/css/skins/skin-3.css')}}">-->
+        <!--<link rel="stylesheet" href="{{asset('front/css/skins/skin-4.css')}}">-->
+
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+{% endblock %}
+{% block body %}
+    <body id="bg">
+
+    <!-- Boxed Layout -->
+    <div id="page" class="site boxed-layout">
+
+        <!-- Preloader -->
+        <div class="preeloader">
+            <div class="preloader-spinner"></div>
+        </div>
+        <!--/ End Preloader -->
+        {% block header %}
+            <!-- Header -->
+            <header class="header">
+                <!-- Topbar -->
+                <div class="topbar">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-12">
+                                <!-- Top Contact -->
+                                <div class="top-contact">
+                                    <div class="single-contact"><i class="fa fa-phone"></i>Phone: +(216) 26262626</div>
+                                    <div class="single-contact"><i class="fa fa-envelope-open"></i>Email: coachiniapp@gmail.com</div>
+                                </div>
+                                <!-- End Top Contact -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ End Topbar -->
+                <!-- Middle Header -->
+                <div class="middle-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="middle-inner">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-md-3 col-12">
+                                            <!-- Logo -->
+                                            <div class="logo">
+                                                <!-- Image Logo -->
+                                                <div class="img-logo">
+                                                    <a href="index.html">
+                                                        <img src="{{asset('front/img/logo.png')}}" alt="#">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="mobile-nav"></div>
+                                        </div>
+                                        <div class="col-lg-10 col-md-9 col-12">
+                                            <div class="menu-area">
+                                                <!-- Main Menu -->
+                                                <nav class="navbar navbar-expand-lg">
+                                                    <div class="navbar-collapse">
+                                                        <div class="nav-inner">
+                                                            <div class="menu-home-menu-container">
+                                                                <!-- Naviagiton -->
+                                                                <ul id="nav" class="nav main-menu menu navbar-nav">
+                                                                    <li><a href="{{ url('welcomePage')}}">Home</a></li>
+                                                                    <li><a href="{{ path('profile_index') }}">Profil</a>
+                                                                        <ul class="sub-menu">
+                                                                            <li><a id="createnewbtn" class="btn btn-primary mb-2 mt-2" href="{{ path('profile_new') }}">Create new</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li><a href="{{ path('actualite_index') }}">Actuality</a> <ul class="sub-menu">
+                                                                            <li><a id="createnewbtn" class="btn btn-primary mb-2 mt-2" href="{{ path('actualite_indexact') }}">Gérer Mes Actualité</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li><a href="{{ url('event_client_index')}}">See Events</a></li>
+
+                                                                    <li><a href="{{ url('event_index')}}">Gérer Mes Events</a></li>
+                                                                    <li><a href="{{ url('amis_index')}}">Messageries & Amies</a></li>
+                                                                    <li><a href="{{ url('index_reclamation')}}">Réclamation</a></li>
+                                                                    <li><a href="{{ url('mesoffre')}}">Gérer Mes Offres</a></li>
+
+
+                                                                    <li><a href="{{ url('logout')}}">Sign out</a></li>
+                                                                    <li><a href="{{ url('myAccount')}}">My account</a></li>
+                                                                </ul>
+                                                                <!--/ End Naviagiton -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </nav>
+                                                <!--/ End Main Menu -->
+                                                <!-- Right Bar -->
+                                                <div class="right-bar">
+                                                    <!-- Search Bar -->
+                                                    <ul class="right-nav">
+                                                        <li class="top-search"><a href="#0"><i class="fa fa-search"></i></a></li>
+
+                                                    </ul>
+                                                    <!--/ End Search Bar -->
+                                                    <!-- Search Form -->
+                                                    <div class="search-top">
+                                                        <form action="#" class="search-form" method="get">
+                                                            <input type="text" name="s" value="" placeholder="Search here"/>
+                                                            <button type="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
+                                                        </form>
+                                                    </div>
+                                                    <!--/ End Search Form -->
+                                                </div>
+                                                <!--/ End Right Bar -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ End Middle Header -->
+                <!-- Sidebar Popup -->
+                <div class="sidebar-popup">
+                    <div class="cross">
+                        <a class="btn"><i class="fa fa-close"></i></a>
+                    </div>
+                    <div class="single-content">
+                        <h4>About Bizwheel</h4>
+                        <p>The main component of a healthy environment for self esteem is that it needs be nurturing. It should provide unconditional warmth.</p>
+                        <!-- Social Icons -->
+                        <ul class="social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="single-content">
+                        <h4>Important Links</h4>
+                        <ul class="links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Our Services</a></li>
+                            <li><a href="#">Portfolio</a></li>
+                            <li><a href="#">Pricing Plan</a></li>
+                            <li><a href="#">Blog & News</a></li>
+                            <li><a href="#">Contact us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--/ Sidebar Popup -->
+            </header>
+            <!--/ End Header -->
+        {% endblock %}
+
+        <!-- Hero Slider -->
+        {% block slider %}
+        <section class="hero-slider style1">
+        <section class="hero-slider style1">
+            <div class="home-slider">
+                <!-- Single Slider -->
+                <div class="single-slider" style="background-image:url('https://i0.wp.com/www.fit-wave.com/wp-content/uploads/2019/07/FW-coach.png?fit=1532%2C1022&ssl=1')">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-8 col-12">
+                                <div class="welcome-text">
+                                    <div class="hero-text">
+                                        <h4>We are always ready to help you</h4>
+                                        <h1>Our great Coach Waiting for you</h1>
+                                        <div class="p-text">
+                                            <p>Find your coach now </p>
+                                        </div>
+                                        <div class="button">
+                                            <a href="{{ url('compte_login')}}" class="bizwheel-btn theme-1 effect">Sign in</a>
+                                            <a href="{{ url('coach_create')}}" class="bizwheel-btn theme-2 effect">Sign up</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ End Single Slider -->
+                <!-- Single Slider -->
+                <div class="single-slider" style="background-image:url('https://www.superprof.ch/blog/wp-content/uploads/2019/09/coaching-sportif-vaudois.jpg')">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-8 col-12">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ End Single Slider -->
+                <!-- Single Slider -->
+                <div class="single-slider" style="background-image:url('https://www.justcoaching.fr/wp-content/uploads/2019/10/Pourquoi-faire-appel-%C3%A0-un-coach-sportif-personnel-1200x600.jpg')">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-8 col-12">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ End Single Slider -->
+    </section>
+    <!--/ End Hero Slider -->
+    {% endblock %}
+    {% block change %}
+        <!-- Features Area -->
+        <section class="features-area section-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Single Feature -->
+                        <div class="single-feature">
+                            <div class="icon-head"><i class="fa fa-podcast"></i></div>
+                            <h4><a href="service-single.html">Innovative guide</a></h4>
+                        </div>
+                        <!--/ End Single Feature -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Single Feature -->
+                        <div class="single-feature">
+                            <div class="icon-head"><i class="fa fa-podcast"></i></div>
+                            <h4><a href="service-single.html">Quality Service</a></h4>
+                        </div>
+                        <!--/ End Single Feature -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Single Feature -->
+                        <div class="single-feature active">
+                            <div class="icon-head"><i class="fa fa-podcast"></i></div>
+                            <h4><a href="service-single.html">Competitive prices</a></h4>
+                        </div>
+                        <!--/ End Single Feature -->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <!-- Single Feature -->
+                        <div class="single-feature">
+                            <div class="icon-head"><i class="fa fa-podcast"></i></div>
+                            <h4><a href="service-single.html">24/7 Live support</a></h4>
+                        </div>
+                        <!--/ End Single Feature -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--/ End Features Area -->
+        <!-- Testimonials -->
+        <section class="testimonials section-space" style="background-image:url('https://d1heoihvzm7u4h.cloudfront.net/7680c65526397ce129e200d2823c34fe51e988d0_November_banner_27.jpg')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-9 col-12">
+                        <div class="section-title default text-left">
+                        </div>
+                        <div class="testimonial-inner">
+                            <div class="testimonial-slider">
+                                <!-- Single Testimonial -->
+                                <div class="single-slider">
+                                    <ul class="star-list">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                    <p>I really enjoyed training with my coach Mohamed ,I learned a lot , It's a great experience.</p>
+                                    <!-- Client Info -->
+                                    <div class="t-info">
+                                        <div class="t-left">
+                                            <div class="client-head"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&usqp=CAU" alt="#"></div>
+                                            <h2>Julia Dien <span>Doctor</span></h2>
+                                        </div>
+                                        <div class="t-right">
+                                            <div class="quote"><i class="fa fa-quote-right"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / End Single Testimonial -->
+                                <!-- Single Testimonial -->
+                                <div class="single-slider">
+                                    <ul class="star-list">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                    <p>This site is Great I finally found a good coach</p>
+                                    <!-- Client Info -->
+                                    <div class="t-info">
+                                        <div class="t-left">
+                                            <div class="client-head"><img src="https://www.stokepark.com/assets/components/3584_5be06ebd70930.jpg" alt="#"></div>
+                                            <h2>Buman Panama <span>Teacher</span></h2>
+                                        </div>
+                                        <div class="t-right">
+                                            <div class="quote"><i class="fa fa-quote-right"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / End Single Testimonial -->
+                                <!-- Single Testimonial -->
+                                <div class="single-slider">
+                                    <ul class="star-list">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                    <p>Not bad ,I hope more people will know about this site , it's great</p>
+                                    <!-- Client Info -->
+                                    <div class="t-info">
+                                        <div class="t-left">
+                                            <div class="client-head"><img src="https://images.pexels.com/photos/2078265/pexels-photo-2078265.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="#"></div>
+                                            <h2>Donald Bonam <span>Developer</span></h2>
+                                        </div>
+                                        <div class="t-right">
+                                            <div class="quote"><i class="fa fa-quote-right"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / End Single Testimonial -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div><br><br><br><br><br></div>
+        <!--/ End Testimonials -->
+
+
+
+
+
+
+
+
+
+    {% endblock %}
+    {% block footer %}
+        <!-- Footer -->
+        <footer class="footer" style="background-image:url({{asset('front/img/map.png')}}">
+            <!-- Footer Top -->
+            <div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <!-- Footer About -->
+                            <div class="single-widget footer-about widget">
+                                <div class="logo">
+                                    <div class="img-logo">
+                                        <a class="logo" href="index.html">
+                                            <img class="img-responsive" src="{{asset('front/img/logo.png')}}" alt="logo">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="footer-widget-about-description">
+                                    <p>Don't forget to check us on social media!</p>
+                                </div>
+                                <div class="social">
+                                    <!-- Social Icons -->
+                                    <ul class="social-icons">
+                                        <li><a class="facebook" href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="twitter" href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="linkedin" href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a class="pinterest" href="#" target="_blank"><i class="fa fa-pinterest-p"></i></a></li>
+                                        <li><a class="instagram" href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <!--/ End Footer About -->
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-6 col-12" style="margin-left: 400px">
+                            <!-- Footer Contact -->
+                            <div class="single-widget footer_contact widget">
+                                <h3 class="widget-title">Contact</h3>
+                                <p>You can  find us</p>
+                                <ul class="address-widget-list">
+                                    <li class="footer-mobile-number"><i class="fa fa-phone"></i>+(216) 26262626</li>
+                                    <li class="footer-mobile-number"><i class="fa fa-envelope"></i>coachiniapp@gmail.com</li>
+                                    <li class="footer-mobile-number"><i class="fa fa-map-marker"></i>Dar hedi</li>
+                                </ul>
+                            </div>
+                            <!--/ End Footer Contact -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="copyright-content">
+                                <!-- Copyright Text -->
+                                <p>© Copyright ALT F4. Design &amp; Development By Elyes Massoussi , Adem Youssef , Louay Yahyaoui , Ghassen ElKamel , Donia kacem , Mohamed Hedi Ben aissa</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ End Copyright -->
+        </footer>
+
+    {% endblock %}
+    {% block js %}
+        <!-- Jquery JS -->
+        <script src="{{asset('front/js/jquery.min.js')}}"></script>
+        <script src="{{asset('front/js/jquery-migrate-3.0.0.js')}}"></script>
+        <!-- Popper JS -->
+        <script src="{{asset('front/js/popper.min.js')}}"></script>
+        <!-- Bootstrap JS -->
+        <script src="{{asset('front/js/bootstrap.min.js')}}"></script>
+        <!-- Modernizr JS -->
+        <script src="{{asset('front/js/modernizr.min.js')}}"></script>
+        <!-- ScrollUp JS -->
+        <script src="{{asset('front/js/scrollup.js')}}"></script>
+        <!-- FacnyBox JS -->
+        <script src="{{asset('front/js/jquery-fancybox.min.js')}}"></script>
+        <!-- Cube Portfolio JS -->
+        <script src="{{asset('front/js/cubeportfolio.min.js')}}"></script>
+        <!-- Slick Nav JS -->
+        <script src="{{asset('front/js/slicknav.min.js')}}"></script>
+        <!-- Slick Nav JS -->
+        <script src="{{asset('front/js/slicknav.min.js')}}"></script>
+        <!-- Slick Slider JS -->
+        <script src="{{asset('front/js/owl-carousel.min.js')}}"></script>
+        <!-- Easing JS -->
+        <script src="{{asset('front/js/easing.js')}}"></script>
+        <!-- Magnipic Popup JS -->
+        <script src="{{asset('front/js/magnific-popup.min.js')}}"></script>
+        <!-- Active JS -->
+        <script src="{{asset('front/js/active.js')}}"></script>
+    {% endblock %}
+    </div> </body>
+{% endblock %}
+</html>
